@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">  
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.css">  
+        <link rel="stylesheet" href="sytle.css">      
+    </head>
+    <body>  
+                
+        
+        <div class="col-lg-7 col-md-7 col-sm-9 mt-lg-4 mt-md-4 mt-sm-2 mx-auto shadow  p-4 rounded-3 bg-warning">
+            <h1 class="text-center text-decoration-underline">CHECK YOUR GRADE HERE</h1>
+
+            <div class="form-group my-2">
+                <input type="number" placeholder="Enter your score" id="userScore" class="form-control shadow-sm p-2">
+            </div>
+
+            <div class="form-group my-">
+                <button class="btn btn-primary w-100" onclick="checkScore()">CLICK TO CHECK</button>
+            </div>
+        
+            <div class="mt-5 text-center bg-dark" id="showScore"></div><br>
+        </div>
+        
+        <script>
+            function checkScore () {
+
+                // var songExcellent = new Audio("audio/adle.mp3")
+                var scoreOfUser = document.getElementById("userScore");
+                var userScored = scoreOfUser.value;
+
+                if (userScored=="" && userScored==""){
+                    showScore.innerHTML = "INVALID";
+                    showScore.style.color = "red";
+                } 
+                else if (userScored >= 70 && userScored <= 100) {
+                    var songExcellent = new Audio("audio/green.mp3")
+                    var result = "EXCELLENT (A)"
+                    showScore.innerHTML = result;
+                    showScore.style.color = "green";
+                    songExcellent.play();                    
+                } 
+                else if (userScored >= 60 && userScored <= 69){
+                    var songGood = new Audio("audio/the.mp3")
+                    var result = "VERY GOOD (B)"
+                    showScore.innerHTML = result;
+                    showScore.style.color = "blue"
+                    songGood.play();
+                }
+                else if (userScored >= 50 && userScored <= 59){
+                    var songCredit = new Audio("audio/adle.mp3")
+                    var result = "CREDIT (C)"
+                    showScore.innerHTML = result;
+                    showScore.style.color = "yellow"
+                    songCredit.play();
+                }
+                else if (userScored >=45  && userScored <=49){
+                    var songAverage = new Audio("audio/town.mp3")
+                    var result = "AVERAGE (D)"
+                    showScore.innerHTML = result;
+                    showScore.style.color = "white"
+                    songAverage.play();
+                }
+                else if (userScored >=39  && userScored <=44){
+                    var songPass = new Audio("audio/silly.mp3")
+                    var result = "PASS (E)"
+                    showScore.innerHTML = result;
+                    showScore.style.color = "orange"
+                    songPass.play();
+                }
+                else if (userScored >=0  && userScored <=38){
+                    var songFailed = new Audio("audio/roadkill.mp3")
+                    var result = "FAIL (F)"
+                    showScore.innerHTML = result;
+                    showScore.style.color = "red"
+                    songFailed.play();
+                }else{
+                    var result = "INPUT CORRECT NUMBER"
+                    showScore.innerHTML = result;
+                    showScore.style.color = "red"                    
+                }
+            }
+        </script>
+</body>
+</html>
